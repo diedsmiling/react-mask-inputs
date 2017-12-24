@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-const uniqueId = () => `_${Math.random().toString(36).substr(2, 9)}`;
+import uniqueId from './uniqueId'
 
 export default function GetMaskedFieldsWrapper(fields) {
   return function wrapComponent(ChildComponent) {
