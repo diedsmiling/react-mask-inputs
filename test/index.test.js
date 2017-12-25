@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import uniqueId from '../src/uniqueId';
-import { UniqueFieldsWrapper } from '../src/index';
+import MaskedFieldsWrapper from '../src/index';
 
 jest.mock('../src/uniqueId', () => {
   let i = 0;
@@ -12,10 +12,10 @@ jest.mock('../src/uniqueId', () => {
 
 const DumpComponent = () => <div>test</div>
 
-describe('<UniqueFieldsWrapper/>', () => {
+describe('<MaskedFieldsWrapper/>', () => {
 
   it('should store mappedFields and reversedMappedFields in state', () => {
-    const WrappedDumpComponent = UniqueFieldsWrapper(['foo', 'bar'])(DumpComponent)
+    const WrappedDumpComponent = MaskedFieldsWrapper(['foo', 'bar'])(DumpComponent)
     const wrapper = mount(<WrappedDumpComponent />)
     expect(wrapper.state('mappedFields'))
       .toEqual({ foo: 'fake_unique_id_1', bar: 'fake_unique_id_2' })
@@ -24,7 +24,7 @@ describe('<UniqueFieldsWrapper/>', () => {
   });
 
   it('should set correct props', () => {
-    const WrappedDumpComponent = UniqueFieldsWrapper(['foo', 'bar'])(DumpComponent)
+    const WrappedDumpComponent = MaskedFieldsWrapper(['foo', 'bar'])(DumpComponent)
     const wrapper = mount(<WrappedDumpComponent />)
     expect(wrapper.find(DumpComponent).prop('mappedFields'))
       .toEqual({ foo: 'fake_unique_id_3', bar: 'fake_unique_id_4' })
@@ -35,7 +35,7 @@ describe('<UniqueFieldsWrapper/>', () => {
   });
 
   it('getValues function should return masked values', () => {
-    const WrappedDumpComponent = UniqueFieldsWrapper(['foo', 'bar'])(DumpComponent)
+    const WrappedDumpComponent = MaskedFieldsWrapper(['foo', 'bar'])(DumpComponent)
     const wrapper = mount(<WrappedDumpComponent />)
     const getValues = wrapper.find(DumpComponent).prop('getValues')
     const values = getValues({
