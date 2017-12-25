@@ -4,7 +4,9 @@
   "description": "Used for masking input field names from dom.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "build": "npm test && babel -d dist src/index.js",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,12 @@
   },
   "homepage": "https://github.com/diedsmiling/react-mask-inputs#readme",
   "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-jest": "21.2.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-react": "6.24.1",
+    "enzyme": "^3.2.0",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",

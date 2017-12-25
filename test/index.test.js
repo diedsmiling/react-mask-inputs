@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import uniqueId from '../../../helpers/uniqueId';
+import uniqueId from '../src/uniqueId';
 import { UniqueFieldsWrapper } from '../src/index';
 
-jest.mock('../../../helpers/uniqueId', () => {
+jest.mock('../src/uniqueId', () => {
   let i = 0;
   return () => {
     i++;

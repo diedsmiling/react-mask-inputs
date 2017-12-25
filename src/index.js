@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import uniqueId from './uniqueId'
+import uniqueId from './uniqueId';
+
+var a = 'aa';
 
 export default function GetMaskedFieldsWrapper(fields) {
   return function wrapComponent(ChildComponent) {
