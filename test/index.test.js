@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import uniqueId from '../src/uniqueId';
 import MaskedFieldsWrapper from '../src/index';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../src/uniqueId', () => {
   let i = 0;
